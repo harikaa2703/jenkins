@@ -84,4 +84,17 @@ II. Maven Web Automation Steps:
 2.	Now we see all the build has  success if it appears in green color
         ├── Open Tomcat homepage in another tab
         ├── Click on the "/webpath" option under the manager app
+
+
+
+
+
+
+
+mvn -version
+sc query Jenkins
+kubectl version --client
+minikube version
+docker --version
+docker ps -a
               
