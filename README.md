@@ -159,3 +159,48 @@ Step 2: Create Freestyle Project (e.g., MavenJava_Build)
         ├── Click on the trigger to run the pipeline
         ├── click on the small black box to open the console to check if the build is success
 
+
+
+
+
+
+
+
+sscript:
+
+pipeline normal ga then desc then triggers lo select build periodically then choose pipeline script then 
+
+
+pipeline {
+    agent any
+    tools{
+        maven 'MAVEN-HOME'
+    }
+    stages {
+        stage('git repo & clean') {
+            steps {
+                //bat "rmdir  /s /q mavenjava"
+                bat "git clone provide your github link"
+                bat "mvn clean -f mavenjava"
+            }
+        }
+        stage('install') {
+            steps {
+                bat "mvn install -f mavenjava" #project name#
+            }
+        }
+        stage('test') {
+            steps {
+                bat "mvn test -f mavenjava"
+            }
+        }
+        stage('package') {
+            steps {
+                bat "mvn package -f mavenjava"
+            }
+        }
+    }
+}
+
+
+apply save 
